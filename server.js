@@ -20,7 +20,7 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors('*'))
+app.use(cors()); 
 app.use(cookieParser())
 
 
@@ -40,7 +40,7 @@ app.use('/ingProduct', IngProductRouter  )
 
 app.use('/users', userRouter)
 
-connetDb()
+connetDb();
 
 app.listen(5000,()=>{
     console.log('backend isleyir');

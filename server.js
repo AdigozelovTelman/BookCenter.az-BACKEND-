@@ -10,6 +10,7 @@ import RusProductRouter from './router/rusproductRouter.js'
 import UsaqProductRouter from './router/usaqRouter.js'
 import IngProductRouter from './router/ingproductRouter.js'
 import userRouter from './router/userRouter.js'
+import authRouter from './router/authRouter.js'
 import cookieParser from 'cookie-parser'
 
 
@@ -42,6 +43,8 @@ app.use('/usaqProduct', UsaqProductRouter  )
 app.use('/ingProduct', IngProductRouter  )
 
 app.use('/users', userRouter)
+
+app.use('/auth', authRouter )
 
 connetDb()
 

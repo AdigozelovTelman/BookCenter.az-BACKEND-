@@ -1,26 +1,26 @@
-import jwt from 'jsonwebtoken'
-import userModel from '../models/UserModel.js'
+// import jwt from 'jsonwebtoken'
+// import userModel from '../models/UserModel.js'
 
-const userControl = async (req, res, next) =>{
-    let token
+// const userControl = async (req, res, next) =>{
+//     let token
 
-    token = req.cookies.jwt
+//     token = req.cookies.jwt
 
-    if (!token) {
-        res.json('token tapilmadi')
-    }
+//     if (!token) {
+//         res.json('token tapilmadi')
+//     }
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+//     try {
+//         const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-        req.user = await userModel.findById(decoded.id).select('-password')
+//         req.user = await userModel.findById(decoded.id).select('-password')
 
-        next()
+//         next()
 
-    } catch (error) {
-        console.log(error);
+//     } catch (error) {
+//         console.log(error);
         
-    }
-}
+//     }
+// }
 
-export default userControl
+// export default userControl

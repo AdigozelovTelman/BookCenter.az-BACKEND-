@@ -1,12 +1,16 @@
-import express from 'express'
-import { deleteBasket, getBasket, postBasket } from '../controllers/basketController.js'
+import express from 'express';
+import { deleteUsers, getUser, getUsers, updateUsers } from '../controllers/userController.js';
+import { verifyAdmin, verifyUser } from '../utils/generateToken.js';
+import { getBasket, postBasket, deleteBasket, increaseQuantity, decreaseQuantity } from '../controllers/basketController.js';
 
-export const router = express.Router()
+const router = express.Router();
 
-router.route('/')
-.get(getBasket)
-.post(postBasket)
-    router.route('/:id')
-    .delete(deleteBasket)
 
-export default router
+
+router.get("/", getBasket);
+router.post("/", postBasket);
+router.delete("/:id", deleteBasket);
+router.patch("/increase/:id", increaseQuantity);
+router.patch("/decrease/:id", decreaseQuantity);
+
+export default router;

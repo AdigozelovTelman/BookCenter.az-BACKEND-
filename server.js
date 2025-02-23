@@ -9,6 +9,9 @@ import TrProductRouter from './router/trproductRouter.js'
 import RusProductRouter from './router/rusproductRouter.js'
 import UsaqProductRouter from './router/usaqRouter.js'
 import IngProductRouter from './router/ingproductRouter.js'
+import GiftProductRouter from './router/giftRouter.js'
+import BagProductRouter from './router/bagRouter.js'
+import NotebookProductRouter from './router/notebookRouter.js'
 import userRouter from './router/userRouter.js'
 import authRouter from './router/authRouter.js'
 import cookieParser from 'cookie-parser'
@@ -21,10 +24,7 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors({
-    origin: 'http://localhost:3000', 
-    credentials: true 
-  })); 
+app.use(cors('*')) 
 app.use(cookieParser())
 
 
@@ -41,6 +41,12 @@ app.use('/rusProduct', RusProductRouter  )
 app.use('/usaqProduct', UsaqProductRouter  )
 
 app.use('/ingProduct', IngProductRouter  )
+
+app.use('/giftProduct', GiftProductRouter  )
+
+app.use('/bagProduct', BagProductRouter  )
+
+app.use('/notebookProduct', NotebookProductRouter )
 
 app.use('/users', userRouter)
 

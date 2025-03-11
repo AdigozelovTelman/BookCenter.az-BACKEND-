@@ -53,6 +53,12 @@ app.use('/auth', authRouter )
 
 connetDb()
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcome",
+  });
+});
+
 app.listen(5000,()=>{
     console.log('backend isleyir');
 })
